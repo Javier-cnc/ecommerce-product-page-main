@@ -1,0 +1,30 @@
+@use '../../../variables/colors' as c
+@use '../../../variables/fonts' as f
+
+.top-bar-container
+  margin-top: 20px
+  border-bottom: 2px c.$lightgray-color solid
+  display: flex
+  flex-direction: row
+  height: 65px
+
+.menu-items-container
+  display: flex
+  margin-top: 12px
+
+.sneakers-logo
+  font-weight: bold
+  font-size: f.$xx_large-font
+  margin-right: 30px
+
+.menu-item
+  padding-left: 10px
+  padding-right: 10px
+  color: c.$gray-color
+  font-size: small
+
+.menu-item.selected
+    border-bottom: solid c.$orange-color 5px
+
+.top-bar-right-elements-container
+  margin-top: 10px

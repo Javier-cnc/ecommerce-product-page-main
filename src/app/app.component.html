@@ -1,12 +1,31 @@
-<div class="top-bar-container">
-  <strong class="sneakers-logo">sneakers</strong>
-  <div class="menu-items-container">
-    <span>Collections</span>
-    <span>Men</span>
-    <span>Woman</span>
-    <span>About</span>
-    <span>Contact</span>
+<div class="global-container">
+  <app-top-bar></app-top-bar>
+  <div class="page-container">
+    <div class="images-viewer-container page-item">
+      <app-images-viewer></app-images-viewer>
+    </div>
+    <div class="item-description-container page-item">
+      <span class="company-name-label">SNEAKER COMPANY</span>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p>
+        these low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they'll withstand everything the
+        weather can offer.
+      </p>
+      <span class="price-label">$125.00</span>
+      <span class="porcentage-discount-label">50%</span>
+      <span class="old-price-label">$250.00</span>
+      <div class="cart-panel-container">
+        <div class="cart-button-box-container">
+          <button class="cart-button-box quantity-cart-button">-</button>
+          <span class="cart-button-box">3</span>
+          <button class="cart-button-box quantity-cart-button">+</button>
+        </div>
+        <button class="cart-action-button">
+          <span>Cart_icon</span>
+          <span>Add to cart</span>
+        </button>
+      </div>
+    </div>
   </div>
-  <span>Shopping_cart icon</span>
-  <span>Avatar placeholder</span>
 </div>

@@ -1,0 +1,28 @@
+@use '../../../variables/_colors' as c
+
+.selected-image-viewer-container
+  background-color: skyblue
+  height: 300px
+  display: flex
+  justify-content: center
+  align-items: center
+
+.images-selection-panel
+  display: flex
+  margin-top: 20px
+  justify-content: center
+
+.selection-item-container
+  background-color: pink
+  margin-left: 10px
+  margin-right: 10px
+  height: 50px
+  width: 50px
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+
+.selection-item-container.selected
+  border: solid 2px c.$orange-color
+  border-radius: 5px

@@ -1,0 +1,17 @@
+<div class="global-container">
+  <div class="selected-image-viewer-container">
+    <span>{{ testingElementsToShow[selectionIndex] }}</span>
+    <img class="selected-image-viewer" />
+  </div>
+  <div class="images-selection-panel">
+    <div
+      [class.selected]="i === selectionIndex"
+      class="selection-item-container"
+      (click)="setSelectedIndex(i)"
+      *ngFor="let item of testingElementsToShow; let i = index"
+    >
+      <span>{{ item }}</span>
+      <img class="selection-item" />
+    </div>
+  </div>
+</div>

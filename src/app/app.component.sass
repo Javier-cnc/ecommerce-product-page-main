@@ -1,3 +1,74 @@
-.sneakers-logo
-  font-weight: bold
-  font-size: large
+@use '../variables/colors' as c
+@use '../variables/fonts' as f
+
+.global-container
+  margin-left: 60px
+  margin-right: 60px
+
+// inside page elements
+
+.page-container
+  display: flex
+  margin-top: 50px
+
+.page-item
+  flex: 1 1 0
+
+.company-name-label
+  color: c.$orange-color
+  font-size: f.$small-font
+.images-viewer-container
+  background-color: yellow
+.item-description-container
+  background-color: pink
+  padding: 50px
+
+.porcentage-discount-label
+  background-color: c.$lightorange-color
+  color: c.$orange-color
+  border-radius: 5px
+  margin-left: 10px
+  padding: 5px
+
+.old-price-label
+  display: block
+  color: c.$gray-color
+  margin-top: 10px
+  font-size: f.$small-font
+  text-decoration-line: line-through
+
+.cart-button-box
+  border: none
+  padding-top: 5px
+  padding-bottom: 5px
+  padding-left: 10px
+  background-color: transparent
+  padding-right: 10px
+
+.cart-button-box-container
+  display: inline-block
+  background-color: c.$lightgray-color
+
+
+.quantity-cart-button
+  color: orange
+  font-weight: regular
+  font-size: f.$medium-font
+
+.cart-panel-container
+  margin-top: 10px
+
+.cart-action-button
+  background-color: c.$orange-color
+  border: none
+  padding-top: 10px
+  padding-bottom: 10px
+  padding-left: 40px
+  padding-right: 40px
+  margin-left: 10px
+  border-radius: 10px
+  color: c.$white-color
+
+.cart-action-button:hover
+  opacity: 0.8
+  cursor: pointer
