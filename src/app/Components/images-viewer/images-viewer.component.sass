@@ -1,11 +1,17 @@
 @use '../../../variables/_colors' as c
 
 .selected-image-viewer-container
-  background-color: skyblue
   height: 300px
   display: flex
   justify-content: center
+  margin-right: auto
+  margin-left: auto
   align-items: center
+
+.image-container
+  height: 100%
+  overflow: hidden
+  border-radius: 10px
 
 .images-selection-panel
   display: flex
@@ -26,3 +32,8 @@
 .selection-item-container.selected
   border: solid 2px c.$orange-color
   border-radius: 5px
+
+img
+  width: 100%
+  height: 100%
+  object-fit: contain

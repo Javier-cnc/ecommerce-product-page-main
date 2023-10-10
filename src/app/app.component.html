@@ -2,19 +2,17 @@
   <app-top-bar></app-top-bar>
   <div class="page-container">
     <div class="images-viewer-container page-item">
-      <app-images-viewer></app-images-viewer>
+      <app-images-viewer [images]="productModel$?.images"></app-images-viewer>
     </div>
     <div class="item-description-container page-item">
       <span class="company-name-label">SNEAKER COMPANY</span>
-      <h1>Fall Limited Edition Sneakers</h1>
+      <h1>{{ productModel$?.name }}</h1>
       <p>
-        these low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they'll withstand everything the
-        weather can offer.
+        {{ productModel$?.description }}
       </p>
-      <span class="price-label">$125.00</span>
+      <span class="price-label">${{ productModel$?.price }}</span>
       <span class="porcentage-discount-label">50%</span>
-      <span class="old-price-label">$250.00</span>
+      <span class="old-price-label">${{ productModel$?.oldPrice }}</span>
       <div class="cart-panel-container">
         <div class="cart-button-box-container">
           <button class="cart-button-box quantity-cart-button">-</button>

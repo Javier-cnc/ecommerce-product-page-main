@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-images-viewer',
@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./images-viewer.component.sass'],
 })
 export class ImagesViewerComponent {
-  // define a dummy list of elements to test the functionality of the current component
-  testingElementsToShow: number[] = [1, 2, 3, 4];
+  @Input('images')
+  images: string[] | undefined = [];
 
   // define the position of the selected item in the elements to show
   selectionIndex: number = 0;
