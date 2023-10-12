@@ -41,12 +41,11 @@
   </div>
 </div>
 
-<div
-  *ngIf="isLayerVisible"
-  (click)="hideLayer($event)"
-  class="semitransparent-layer"
->
-  <div (click)="clickTesting($event)">
+<div *ngIf="isLayerVisible" class="semitransparent-layer">
+  <div>
+    <div class="close-button-container">
+      <button (click)="hideLayer($event)" class="close-button">C</button>
+    </div>
     <app-images-viewer
       [navigationButtonVisible]="true"
       [images]="productModel$?.images"

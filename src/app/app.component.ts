@@ -43,7 +43,7 @@ export class AppComponent {
   }
 
   hideLayer(event: any) {
-    if (!event.clickHandled) this.isLayerVisible = false;
+    this.isLayerVisible = false;
   }
 
   showLayer() {
