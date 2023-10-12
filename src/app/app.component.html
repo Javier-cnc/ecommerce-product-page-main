@@ -47,6 +47,9 @@
   class="semitransparent-layer"
 >
   <div (click)="clickTesting($event)">
-    <app-images-viewer [images]="productModel$?.images"></app-images-viewer>
+    <app-images-viewer
+      [navigationButtonVisible]="true"
+      [images]="productModel$?.images"
+    ></app-images-viewer>
   </div>
 </div>

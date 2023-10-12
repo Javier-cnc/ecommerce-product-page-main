@@ -7,6 +7,7 @@
   margin-right: auto
   margin-left: auto
   align-items: center
+  position: relative
 
 .image-container
   height: 100%
@@ -37,3 +38,22 @@ img
   width: 100%
   height: 100%
   object-fit: contain
+
+.image-button
+  border: none
+  position: absolute
+  border-radius: 50%
+  background-color: c.$white-color
+  width: 50px
+  height: 50px
+  z-index: 1000
+  cursor: pointer
+
+.image-button:hover
+  color: c.$orange-color
+
+.image-button:first-child
+  left: -25px
+
+.image-button:last-child
+  right: -25px

@@ -1,11 +1,25 @@
 <div class="global-container">
   <div class="selected-image-viewer-container">
+    <button
+      (click)="goBack()"
+      *ngIf="navigationButtonVisible && !IsFirstElement"
+      class="image-button"
+    >
+      B
+    </button>
     <div class="image-container" (click)="imageClicked()">
       <img
         class="selected-image-viewer"
         [src]="images ? images[selectionIndex] : ''"
       />
     </div>
+    <button
+      (click)="goForward()"
+      *ngIf="navigationButtonVisible && !IsLastElement"
+      class="image-button"
+    >
+      F
+    </button>
   </div>
   <div class="images-selection-panel">
     <div
