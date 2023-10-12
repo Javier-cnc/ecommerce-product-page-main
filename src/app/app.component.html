@@ -2,7 +2,10 @@
   <app-top-bar></app-top-bar>
   <div class="page-container">
     <div class="images-viewer-container page-item">
-      <app-images-viewer [images]="productModel$?.images"></app-images-viewer>
+      <app-images-viewer
+        (clicked)="showLayer()"
+        [images]="productModel$?.images"
+      ></app-images-viewer>
     </div>
     <div class="item-description-container page-item">
       <span class="company-name-label">SNEAKER COMPANY</span>
@@ -15,9 +18,19 @@
       <span class="old-price-label">${{ productModel$?.oldPrice }}</span>
       <div class="cart-panel-container">
         <div class="cart-button-box-container">
-          <button class="cart-button-box quantity-cart-button">-</button>
-          <span class="cart-button-box">3</span>
-          <button class="cart-button-box quantity-cart-button">+</button>
+          <button
+            (click)="decreaseQuantity()"
+            class="cart-button-box quantity-cart-button"
+          >
+            -
+          </button>
+          <span class="cart-button-box">{{ productQuantityToOrder }}</span>
+          <button
+            (click)="increaseQuantity()"
+            class="cart-button-box quantity-cart-button"
+          >
+            +
+          </button>
         </div>
         <button class="cart-action-button">
           <span>Cart_icon</span>
@@ -25,5 +38,15 @@
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+<div
+  *ngIf="isLayerVisible"
+  (click)="hideLayer($event)"
+  class="semitransparent-layer"
+>
+  <div (click)="clickTesting($event)">
+    <app-images-viewer [images]="productModel$?.images"></app-images-viewer>
   </div>
 </div>

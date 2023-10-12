@@ -1,6 +1,6 @@
 <div class="global-container">
   <div class="selected-image-viewer-container">
-    <div class="image-container">
+    <div class="image-container" (click)="imageClicked()">
       <img
         class="selected-image-viewer"
         [src]="images ? images[selectionIndex] : ''"
