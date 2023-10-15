@@ -1,6 +1,13 @@
 <div class="top-bar-container">
+  <div *ngIf="!smallScreenModeActive; else cartdisplay"></div>
+  <button
+    (click)="toggleLeftSidePanelVisibility()"
+    class="ham-button visible-for-small-screen"
+  >
+    <i class="material-icons">menu</i>
+  </button>
   <strong class="sneakers-logo">sneakers</strong>
-  <div class="menu-items-container">
+  <div class="menu-items-container hidden-for-small-screen">
     <span class="menu-item selected">Collections</span>
     <span class="menu-item">Men</span>
     <span class="menu-item">Woman</span>
@@ -9,7 +16,48 @@
   </div>
   <div class="flex-item-white-space-placeholder"></div>
   <div class="top-bar-right-elements-container">
-    <i class="material-icons menu-item">cloud</i>
+    <div class="shopping-cart-container">
+      <div (click)="toggleCartDisplayVisibility()" class="cart-display-button">
+        <i class="material-icons menu-item">shopping_cart</i>
+        <span class="shopping-cart-badge">{{ cartItems.length }}</span>
+      </div>
+      <div *ngIf="smallScreenModeActive; else cartdisplay"></div>
+      <ng-template #cartdisplay>
+        <div
+          *ngIf="cartDisplayVisible"
+          (click)="toggleCartDisplayVisibility()"
+          class="background-layer"
+        ></div>
+        <div *ngIf="cartDisplayVisible" class="cart-display">
+          <h5 class="display-cart-header">Cart</h5>
+          <div class="thin-line"></div>
+          <div
+            *ngIf="cartItems.length > 0; else emptymessage"
+            class="cart-products-list-container"
+          >
+            <div class="cart-item-container" *ngFor="let item of cartItems">
+              <app-product-cart-view [model]="item"></app-product-cart-view>
+              <button
+                (click)="removeItemById(item.product.id)"
+                class="delete-button"
+              >
+                <i class="material-icons delete-icon">delete</i>
+              </button>
+            </div>
+          </div>
+          <ng-template #emptymessage
+            ><div class="empty-message-label">Empty cart</div></ng-template
+          >
+          <button
+            *ngIf="cartItems.length != 0"
+            (click)="checkoutCart()"
+            class="checkout-button"
+          >
+            Checkout
+          </button>
+        </div>
+      </ng-template>
+    </div>
     <div class="avatar-container">
       <img src="assets/images/image-avatar.png" />
     </div>

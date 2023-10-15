@@ -1,16 +1,22 @@
 @use '../../../variables/_colors' as c
 
-.selected-image-viewer-container
-  height: 300px
+.global-container
   display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+
+.selected-image-viewer-container
+  display: flex
+  flex-grow: 1
   justify-content: center
   margin-right: auto
   margin-left: auto
   align-items: center
   position: relative
+  cursor: pointer
 
 .image-container
-  height: 100%
   overflow: hidden
   border-radius: 10px
 

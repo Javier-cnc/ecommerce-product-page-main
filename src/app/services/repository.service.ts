@@ -17,6 +17,7 @@ export class RepositoryService {
     // use a timming function to simulate some delay in the server
     setTimeout(() => {
       observable.next({
+        id: '123423412',
         name: 'Fall limited edition sneakers',
         images: [
           'assets/images/image-product-1.jpg',

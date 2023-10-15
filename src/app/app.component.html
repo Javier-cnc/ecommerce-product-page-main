@@ -4,18 +4,18 @@
     <div class="images-viewer-container page-item">
       <app-images-viewer
         (clicked)="showLayer()"
-        [images]="productModel$?.images"
+        [images]="productModel?.images"
       ></app-images-viewer>
     </div>
     <div class="item-description-container page-item">
       <span class="company-name-label">SNEAKER COMPANY</span>
-      <h1>{{ productModel$?.name }}</h1>
+      <h1>{{ productModel?.name }}</h1>
       <p>
-        {{ productModel$?.description }}
+        {{ productModel?.description }}
       </p>
-      <span class="price-label">${{ productModel$?.price }}</span>
+      <span class="price-label">${{ productModel?.price }}</span>
       <span class="porcentage-discount-label">50%</span>
-      <span class="old-price-label">${{ productModel$?.oldPrice }}</span>
+      <span class="old-price-label">${{ productModel?.oldPrice }}</span>
       <div class="cart-panel-container">
         <div class="cart-button-box-container">
           <button
@@ -24,7 +24,9 @@
           >
             -
           </button>
-          <span class="cart-button-box">{{ productQuantityToOrder }}</span>
+          <span class="cart-button-box cart-quantity-label">{{
+            productQuantityToOrder
+          }}</span>
           <button
             (click)="increaseQuantity()"
             class="cart-button-box quantity-cart-button"
@@ -32,9 +34,13 @@
             +
           </button>
         </div>
-        <button class="cart-action-button">
-          <span>Cart_icon</span>
-          <span>Add to cart</span>
+        <button
+          (click)="addToCart()"
+          [class.disabled]="productQuantityToOrder === 0"
+          class="cart-action-button"
+        >
+          <i class="material-icons">shopping_cart</i>
+          <span class="cart-action-button-label">Add to cart</span>
         </button>
       </div>
     </div>
@@ -42,13 +48,24 @@
 </div>
 
 <div *ngIf="isLayerVisible" class="semitransparent-layer">
-  <div>
+  <div class="image-viewer-full-screen-container">
     <div class="close-button-container">
-      <button (click)="hideLayer($event)" class="close-button">C</button>
+      <button (click)="hideLayer($event)" class="close-button">X</button>
     </div>
     <app-images-viewer
       [navigationButtonVisible]="true"
-      [images]="productModel$?.images"
+      [images]="productModel?.images"
     ></app-images-viewer>
   </div>
+</div>
+
+<div
+  *ngIf="leftSidePanelVisible && smallScreenModeActive"
+  class="left-side-panel"
+>
+  <span class="menu-item">Collections</span>
+  <span class="menu-item">Men</span>
+  <span class="menu-item">Woman</span>
+  <span class="menu-item">About</span>
+  <span class="menu-item">Contact</span>
 </div>

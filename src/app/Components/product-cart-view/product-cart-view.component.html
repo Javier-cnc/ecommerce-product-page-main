@@ -1,0 +1,11 @@
+<div class="global-container">
+  <div class="image-container">
+    <img [attr.src]="model.product.images[0]" />
+  </div>
+  <div class="right-side-description">
+    <span class="description">{{ model.product.name }}</span>
+    <span class="price-description"
+      >${{ model.product.price }} x {{ model.quantity }} </span
+    ><strong>${{ TotalPrice }}</strong>
+  </div>
+</div>

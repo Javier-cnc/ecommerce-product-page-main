@@ -1,9 +1,18 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  HostListener,
+} from '@angular/core';
 
 @Component({
   selector: 'app-images-viewer',
   templateUrl: './images-viewer.component.html',
-  styleUrls: ['./images-viewer.component.sass'],
+  styleUrls: [
+    './images-viewer.component.sass',
+    './small_screen-images-viewer.component.sass',
+  ],
 })
 export class ImagesViewerComponent {
   @Input('images')
@@ -23,6 +32,9 @@ export class ImagesViewerComponent {
   }
 
   imageClicked() {
+    if (this.getScreenWidth < 750) {
+      return;
+    }
     this.clicked.emit();
   }
   goBack() {
@@ -51,4 +63,10 @@ export class ImagesViewerComponent {
     }
     return this.selectionIndex === 0;
   }
+  private getScreenWidth: number = 0;
+  private getScreenHeight: number = 0;
+
+  public smallScreenModeActive: boolean = false;
+
+  constructor() {}
 }
