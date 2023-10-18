@@ -10,7 +10,7 @@
     <div class="image-container" (click)="imageClicked()">
       <img
         class="selected-image-viewer"
-        [src]="images ? images[selectionIndex] : ''"
+        [src]="ServerUrl + (images ? images[selectionIndex] : '')"
       />
     </div>
     <button
@@ -28,7 +28,7 @@
       (click)="setSelectedIndex(i)"
       *ngFor="let item of images; let i = index"
     >
-      <img class="selection-item" [src]="item ? item : ''" />
+      <img class="selection-item" [src]="ServerUrl + (item ? item : '')" />
     </div>
   </div>
 </div>

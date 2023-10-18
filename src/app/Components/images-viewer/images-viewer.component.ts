@@ -6,6 +6,8 @@ import {
   HostListener,
 } from '@angular/core';
 
+import { SERVER_URL } from 'src/app/global.variables';
+
 @Component({
   selector: 'app-images-viewer',
   templateUrl: './images-viewer.component.html',
@@ -69,4 +71,8 @@ export class ImagesViewerComponent {
   public smallScreenModeActive: boolean = false;
 
   constructor() {}
+
+  get ServerUrl(): string {
+    return SERVER_URL;
+  }
 }

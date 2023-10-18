@@ -4,6 +4,7 @@ import { ShoppingCartService } from 'src/app/services/shoppingCart.service';
 import { RepositoryService } from 'src/app/services/repository.service';
 import { ShoppingCartItem } from 'src/app/models/shoppingCartItem.model';
 import { BackgroundService } from 'src/app/services/background.service';
+import { SERVER_URL } from 'src/app/global.variables';
 
 @Component({
   selector: 'app-top-bar',
@@ -69,5 +70,9 @@ export class TopBarComponent {
   }
   toggleLeftSidePanelVisibility() {
     this.backgroundService.toggleLeftSidePanelVisibility();
+  }
+
+  get ServerUrl(): string {
+    return SERVER_URL;
   }
 }
