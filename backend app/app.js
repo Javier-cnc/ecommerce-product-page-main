@@ -27,7 +27,7 @@ const port = process.environment.PORT || 3000;
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "https://javier-cnc.github.io/ecommerce-product-page-main/",
+  origin: "https:/localhost:4200/",
   credentials: true,
 };
 
