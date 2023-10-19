@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // get the port number
-const port = process.environment.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // #region CORS implementation
 
