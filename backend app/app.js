@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+
+// get the port number
+const port = process.environment.PORT || 3000;
 
 // #region CORS implementation
 
@@ -25,7 +27,7 @@ const port = 3000;
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "http://localhost:4200",
+  origin: "https://javier-cnc.github.io/ecommerce-product-page-main/",
   credentials: true,
 };
 
@@ -36,9 +38,10 @@ app.use(cors(corsOptions));
 
 // #endregion
 
-// database service initialization
+// #region Database initialization
 require("./services/database.service");
 Products = require("./database/mongoose_models/product");
+// #endregion
 
 // #region Serve static files middleware
 app.use(express.static("assets"));
