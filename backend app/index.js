@@ -59,6 +59,7 @@ app.get("/api/product", async (req, res) => {
   // return to client the dummy product
   res.json(onlyProduct);
 });
+
 // #endregion
 
 app.listen(port, () => {
