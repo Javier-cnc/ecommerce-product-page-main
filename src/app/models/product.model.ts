@@ -1,6 +1,6 @@
 export class Product {
   // item id
-  id: string;
+  _id: string;
   // define the name of the product
   name: string;
   // define the list of images of the product
@@ -13,7 +13,7 @@ export class Product {
   oldPrice: number;
 
   constructor() {
-    this.id = Math.round(Math.random() * 1000000).toString();
+    this._id = Math.round(Math.random() * 1000000).toString();
     this.name = '';
     this.images = [];
     this.description = '';

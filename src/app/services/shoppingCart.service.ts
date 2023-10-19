@@ -20,7 +20,7 @@ export class ShoppingCartService {
   addNewItem(productItem: Product, productQuantity: number) {
     // check if the new product already exist in the cart
     var index = this.shoppingCartItems.findIndex(
-      (cartItem) => cartItem.product.id === productItem.id
+      (cartItem) => cartItem.product._id === productItem._id
     );
 
     var itemToReturn: ShoppingCartItem = new ShoppingCartItem();
@@ -44,7 +44,7 @@ export class ShoppingCartService {
   removeItemByProductId(productId: string) {
     // remove the item corresponding to the product id
     var index = this.shoppingCartItems.findIndex(
-      (item) => item.product.id === productId
+      (item) => item.product._id === productId
     );
     let itemRemoved = this.shoppingCartItems.splice(index, 1)[0];
 

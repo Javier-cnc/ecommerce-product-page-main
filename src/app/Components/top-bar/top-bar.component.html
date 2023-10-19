@@ -38,7 +38,7 @@
             <div class="cart-item-container" *ngFor="let item of cartItems">
               <app-product-cart-view [model]="item"></app-product-cart-view>
               <button
-                (click)="removeItemById(item.product.id)"
+                (click)="removeItemById(item.product._id)"
                 class="delete-button"
               >
                 <i class="material-icons delete-icon">delete</i>

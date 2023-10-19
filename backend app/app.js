@@ -36,37 +36,25 @@ app.use(cors(corsOptions));
 
 // #endregion
 
+// database service initialization
+require("./services/database.service");
+Products = require("./database/mongoose_models/product");
+
 // #region Serve static files middleware
 app.use(express.static("assets"));
 // #endregion
 
 // #region End Points
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
-app.get("/api/product", (req, res) => {
-  // create dummy product for testing purpose
-  var dummyProduct = {
-    id: "123423412",
-    name: "Fall limited edition sneakers",
-    images: [
-      "images/image-product-1.jpg",
-      "images/image-product-2.jpg",
-      "images/image-product-3.jpg",
-      "images/image-product-4.jpg",
-    ],
-    description: `these low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they'll withstand everything the
-        weather can offer.`,
-    price: 125,
-    oldPrice: 250,
-  };
+app.get("/api/product", async (req, res) => {
+  let productsCollection = await Products.find().exec();
 
-  console.log("Object sent to client");
+  let onlyProduct = productsCollection[0];
+
+  console.log(`The object to send to the client is: ${onlyProduct} `);
 
   // return to client the dummy product
-  res.json(dummyProduct);
+  res.json(onlyProduct);
 });
 // #endregion
 
