@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Observable, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +14,7 @@ export class RepositoryService {
     // simulate some server request operation
     // create an observable
     var dummy = this.httpClient.get<Product>(
-      'http://127.0.0.1:3000/api/product'
+      environment.apiUrl + '/api/product'
     );
     console.log(dummy);
     return dummy;
