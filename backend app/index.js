@@ -5,8 +5,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // #region Database initialization
-require("./services/database.service");
-Products = require("./database/mongoose_models/product");
+//require("./services/database.service");
+//Products = require("./database/mongoose_models/product");
 // #endregion
 
 // #region Serve static files middleware
