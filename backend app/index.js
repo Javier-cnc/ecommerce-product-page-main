@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 // #endregion
 
 // #region Serve static files middleware
-app.use(express.static("assets"));
+// app.use(express.static("assets"));
 // #endregion
 
 // #region End Points
