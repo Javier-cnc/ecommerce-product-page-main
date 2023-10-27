@@ -1,23 +1,33 @@
 const express = require("express");
-
 const app = express();
+
+// get the port number
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  const htmlResponse = `
-    <html>
-    <head>
-    <title>NodeJs y Express en Vercel</title>
-    </head>
-    <body>
-    <h1>Soy un proyecto back end en vercel
-    </h1>
-    </body>
-    </html>
-    `;
-  res.send(htmlResponse);
+// #region Database initialization
+//require("./services/database.service");
+//Products = require("./database/mongoose_models/product");
+// #endregion
+
+// #region Serve static files middleware
+// app.use(express.static("assets"));
+// #endregion
+
+// #region End Points
+
+app.get("/api/product", async (req, res) => {
+  let productsCollection = await Products.find().exec();
+
+  let onlyProduct = productsCollection[0];
+
+  console.log(`The object to send to the client is: ${onlyProduct} `);
+
+  // return to client the dummy product
+  res.json(onlyProduct);
 });
 
+// #endregion
+
 app.listen(port, () => {
-  console.log(`port running in http://localhost:${port}`);
+  console.log(`Example app listening on port ${port}`);
 });
